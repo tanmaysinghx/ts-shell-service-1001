@@ -1,0 +1,11 @@
+{
+    "name": "ts-shell-service-1001",
+    "version": "1.0.0",
+    "scripts": {
+        "install:all": "npm install --prefix microservices/ts-auth-service-1625 && npm install --prefix microservices/ts-tms-service-1666 && npm install --prefix microservices/ts-notification-service-1677",
+        "start": "concurrently \"npm start --prefix microservices/ts-auth-service-1625\" \"npm start --prefix microservices/ts-tms-service-1666\" \"npm start --prefix microservices/ts-notification-service-1677\""
+    },
+    "devDependencies": {
+        "concurrently": "^6.0.0"
+    }
+}

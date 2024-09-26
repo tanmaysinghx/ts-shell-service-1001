@@ -1,0 +1,9 @@
+[submodule "microservices/ts-auth-service-1625"]
+	path = microservices/ts-auth-service-1625
+	url = https://github.com/tanmaysinghx/ts-auth-service-1625.git
+[submodule "microservices/ts-notification-service-1677"]
+	path = microservices/ts-notification-service-1677
+	url = https://github.com/tanmaysinghx/ts-notification-service-1677.git
+[submodule "microservices/ts-tms-service-1666"]
+	path = microservices/ts-tms-service-1666
+	url = https://github.com/tanmaysinghx/ts-tms-service-1666.git

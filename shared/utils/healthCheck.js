@@ -2,8 +2,8 @@ const axios = require('axios');
 
 const services = [
     { name: 'Auth Service', url: 'http://localhost:1625/v2/api/health/health-check' },
-    { name: 'TMS Service', url: 'http://localhost:1666/v2/api/health/health-check' },
-    { name: 'Notification Service', url: 'http://localhost:1677/v2/api/health/health-check' },
+    { name: 'TMS Service', url: 'http://localhost:1666/v2/api/health/health' },
+    { name: 'Notification Service', url: 'http://localhost:1677/v2/api/health/health' },
     { name: 'Eureka Service', url: 'http://localhost:1005/actuator/health' }
 ];
 

@@ -4,9 +4,14 @@
     "scripts": {
         "install:all": "npm install --prefix microservices/ts-auth-service-1625 && npm install --prefix microservices/ts-tms-service-1666 && npm install --prefix microservices/ts-notification-service-1677",
         "start": "concurrently \"npm start --prefix microservices/ts-auth-service-1625\" \"npm start --prefix microservices/ts-tms-service-1666\" \"npm start --prefix microservices/ts-notification-service-1677\"",
-        "update:all": "cd microservices/ts-auth-service-1625 && git pull origin main && cd ../ts-tms-service-1666 && git pull origin main && cd ../ts-notification-service-1677 && git pull origin main && cd ../../"
+        "update:all": "cd microservices/ts-auth-service-1625 && git pull origin main && cd ../ts-tms-service-1666 && git pull origin main && cd ../ts-notification-service-1677 && git pull origin main && cd ../../",
+        "start-all": "npm-run-all -p start-auth start-tms start-notification",
+        "start-auth": "npm start --prefix microservices/ts-auth-service-1625",
+        "start-tms": "npm start --prefix microservices/ts-tms-service-1666",
+        "start-notification": "npm start --prefix microservices/ts-notification-service-1677"
     },
     "devDependencies": {
-        "concurrently": "^6.0.0"
+        "concurrently": "^6.0.0",
+        "npm-run-all": "^4.1.5"
     }
 }

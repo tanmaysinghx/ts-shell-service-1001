@@ -5,22 +5,36 @@ services:
     build:
       context: ./microservices/ts-auth-service-1625
     ports:
-      - "3001:3000"  # Expose the service on port 3001
+      - "1625:1625"
+    environment:
+      DATABASE_URL: mysql://root:root@mysql:3306/db1625
+    command: ["sh", "-c", "npx prisma generate && npm run seed && npm start"]
 
   ts-tms-service:
     build:
       context: ./microservices/ts-tms-service-1666
     ports:
-      - "3002:3000"  # Expose the service on port 3002
+      - "1666:1666"
+    environment:
+      DATABASE_URL: mysql://root:root@mysql:3306/db1666
+    command: ["sh", "-c", "npx prisma migrate deploy && npx prisma generate && npm start"]
 
-  ts-notification-service:
-    build:
-      context: ./microservices/ts-notification-service-1677
+  mysql:
+    image: mysql:9.0.1
+    container_name: mysql-container
+    environment:
+      MYSQL_ROOT_PASSWORD: root  
+      MYSQL_DATABASE: db1625
     ports:
-      - "3003:3000"  # Expose the service on port 3003
+      - "3307:3306"
+    volumes:
+      - mysql-data:/var/lib/mysql 
+      - ./my-sql-init/init_db.sql:/docker-entrypoint-initdb.d/init_db.sql
+    healthcheck:
+      test: ["CMD", "mysqladmin", "ping", "-h", "localhost"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
 
-  angular-frontend:
-    build:
-      context: ./frontend/angular-frontend
-    ports:
-      - "4200:80"  # Expose Angular app on port 4200
+volumes:
+  mysql-data:

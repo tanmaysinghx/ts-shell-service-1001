@@ -3,7 +3,7 @@
     "version": "1.0.0",
     "scripts": {
         "install:all": "npm install --prefix microservices/ts-auth-service-1625 && npm install --prefix microservices/ts-tms-service-1666 && npm install --prefix microservices/ts-notification-service-1677",
-        "start": "concurrently \"npm start --prefix microservices/ts-auth-service-1625\" \"npm start --prefix microservices/ts-tms-service-1666\" \"npm start --prefix microservices/ts-notification-service-1677\"",
+        "start": "concurrently \"npm start --prefix microservices/ts-auth-service-1625\" \"npm start --prefix microservices/ts-tms-service-1666\"",
         "dev": "concurrently \"npm run dev --prefix microservices/ts-auth-service-1625 || echo 'Auth Service failed to start'\" \"npm run dev --prefix microservices/ts-tms-service-1666 || echo 'TMS Service failed to start'\" \"npm run dev --prefix microservices/ts-notification-service-1677 || echo 'Notification Service failed to start'\" \"cd microservices && cd ts-eureka-service-1005 && mvn spring-boot:run || echo 'Eureka Service failed to start'\" && npm run health-check",
         "health-check": "node shared/utils/healthCheck.js",
         "update:all": "cd microservices/ts-auth-service-1625 && git pull origin main && cd ../ts-tms-service-1666 && git pull origin main && cd ../ts-notification-service-1677 && git pull origin main && cd ../../"
